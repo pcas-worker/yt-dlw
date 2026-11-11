@@ -32,7 +32,7 @@
   
   <style>
     body {
-      background-color: #fef9c3; /* Amarelo um pouco escuro / suave de fundo */
+      background-color: #fef9c3;
       color: #1e293b;
       font-family: system-ui, -apple-system, sans-serif;
     }
@@ -250,10 +250,12 @@
       btnText.innerText = "A processar na API...";
 
       try {
+        // Payload ajustado para a especificação do Cobalt v11
         const payload = {
           url: videoUrl,
-          videoQuality: qualidade,
-          audioFormat: formatoAtual === 'mp3' ? 'mp3' : 'best'
+          vQuality: qualidade,
+          aFormat: formatoAtual === 'mp3' ? 'mp3' : 'best',
+          downloadMode: formatoAtual === 'mp3' ? 'audio' : 'auto'
         };
 
         const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/', {
