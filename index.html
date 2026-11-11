@@ -19,10 +19,10 @@
         extend: {
           colors: {
             brand: {
-              50: '#ecfeff',
-              500: '#06b6d4',
-              600: '#0891b2',
-              700: '#0e7490',
+              50: '#eef2ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
             }
           }
         }
@@ -32,35 +32,36 @@
   
   <style>
     body {
-      background-color: #f0fdfa; /* Fundo Ciano/Turquesa muito suave */
-      color: #1e293b;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #f8fafc;
       font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
     }
     .glass-card {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(30, 27, 75, 0.75);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.08), 0 10px 10px -5px rgba(6, 182, 212, 0.04);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-600 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
 
   <!-- CABEÇALHO / HEADER -->
-  <header class="border-b border-cyan-100 bg-white/70 backdrop-blur-md sticky top-0 z-50">
+  <header class="border-b border-indigo-900/50 bg-indigo-950/60 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="bg-cyan-600 p-2 rounded-xl text-white shadow-md shadow-cyan-600/30">
+        <div class="bg-indigo-600 p-2 rounded-xl text-white shadow-lg shadow-indigo-600/40">
           <i data-lucide="download"></i>
         </div>
-        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-cyan-700 to-teal-600 bg-clip-text text-transparent">
+        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
           MediaFetch Pro
         </span>
       </div>
-      <div class="flex items-center gap-2 text-sm text-slate-600">
-        <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Railway API Privada Ativa
+      <div class="flex items-center gap-2 text-sm text-indigo-200">
+        <span class="inline-flex items-center gap-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-semibold shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Railway API Ativa
         </span>
       </div>
     </div>
@@ -71,11 +72,11 @@
     
     <!-- TÍTULO PRINCIPAL -->
     <div class="text-center mb-8">
-      <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
-        Baixar Vídeos e Músicas do <span class="bg-gradient-to-r from-cyan-600 to-teal-600 bg-clip-text text-transparent">YouTube</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+        Baixar Vídeos e Músicas do <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">YouTube</span>
       </h1>
-      <p class="text-slate-700 text-sm md:text-base max-w-lg mx-auto">
-        Converta conteúdos do YouTube para MP3 de alta qualidade ou MP4 HD em segundos. Grátis e sem anúncios irritantes.
+      <p class="text-indigo-200 text-sm md:text-base max-w-lg mx-auto">
+        Converta conteúdos do YouTube para MP3 de alta qualidade ou MP4 HD em segundos. Grátis e sem anúncios.
       </p>
     </div>
 
@@ -85,20 +86,20 @@
       <!-- INPUT DE URL -->
       <div class="flex flex-col sm:flex-row gap-3 mb-6">
         <div class="relative flex-1">
-          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-indigo-400">
             <i data-lucide="link"></i>
           </div>
           <input 
             type="text" 
             id="url-input" 
             placeholder="Cole o link do vídeo aqui (ex: https://youtu.be/...)"
-            class="w-full pl-10 pr-4 py-3.5 bg-white border border-cyan-200 rounded-xl focus:outline-none focus:border-cyan-600 focus:ring-2 focus:ring-cyan-600/20 text-slate-800 placeholder-slate-400 transition shadow-sm"
+            class="w-full pl-10 pr-4 py-3.5 bg-indigo-950/80 border border-indigo-800/80 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 text-white placeholder-indigo-400 transition shadow-inner"
           >
         </div>
         <button 
           id="fetch-btn" 
           onclick="detectarVideo()"
-          class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 transition active:scale-95 shadow-md shadow-cyan-600/20"
+          class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 transition active:scale-95 shadow-lg shadow-indigo-600/30"
         >
           <i data-lucide="search" class="w-4 h-4"></i>
           <span>Analisar</span>
@@ -106,27 +107,27 @@
       </div>
 
       <!-- ÁREA DE SELEÇÃO DE FORMATOS & PRÉVIA -->
-      <div id="media-card" class="hidden space-y-6 pt-4 border-t border-cyan-100">
+      <div id="media-card" class="hidden space-y-6 pt-4 border-t border-indigo-900/60">
         
         <!-- PRÉVIA DO VÍDEO -->
-        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white p-4 rounded-xl border border-cyan-100 shadow-sm">
-          <img id="thumb-preview" src="" alt="Thumbnail" class="w-full sm:w-40 aspect-video object-cover rounded-lg border border-slate-100">
+        <div class="flex flex-col sm:flex-row gap-4 items-center bg-indigo-950/60 p-4 rounded-xl border border-indigo-900/80 shadow-inner">
+          <img id="thumb-preview" src="" alt="Thumbnail" class="w-full sm:w-40 aspect-video object-cover rounded-lg border border-indigo-800">
           <div class="flex-1 text-center sm:text-left overflow-hidden">
-            <h3 id="video-title" class="font-semibold text-slate-800 truncate text-base">Título do Vídeo</h3>
-            <p class="text-xs text-slate-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
-              <i data-lucide="video" class="w-3.5 h-3.5 text-cyan-600"></i> YouTube
+            <h3 id="video-title" class="font-semibold text-indigo-100 truncate text-base">Título do Vídeo</h3>
+            <p class="text-xs text-indigo-400 mt-1 flex items-center justify-center sm:justify-start gap-1">
+              <i data-lucide="video" class="w-3.5 h-3.5 text-indigo-400"></i> YouTube
             </p>
           </div>
         </div>
 
         <!-- ABAS DE FORMATO (MP4 / MP3) -->
         <div>
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Formato de Saída</label>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-2">Formato de Saída</label>
           <div class="grid grid-cols-2 gap-3">
             <button 
               id="tab-mp4"
               onclick="selecionarFormato('mp4')"
-              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-cyan-600 bg-cyan-50 text-cyan-700 shadow-sm"
+              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-500 bg-indigo-600/30 text-indigo-200 shadow-sm"
             >
               <i data-lucide="video" class="w-4 h-4"></i>
               Vídeo (MP4)
@@ -134,7 +135,7 @@
             <button 
               id="tab-mp3"
               onclick="selecionarFormato('mp3')"
-              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-slate-200 bg-white text-slate-600 hover:border-slate-300 shadow-sm"
+              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-900 bg-indigo-950/40 text-indigo-400 hover:border-indigo-700 shadow-sm"
             >
               <i data-lucide="music" class="w-4 h-4"></i>
               Áudio (MP3)
@@ -144,18 +145,18 @@
 
         <!-- OPÇÕES DE QUALIDADE -->
         <div id="quality-wrapper">
-          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Qualidade do Vídeo</label>
-          <select id="quality-select" class="w-full bg-white border border-cyan-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-cyan-600 focus:ring-2 focus:ring-cyan-600/20 shadow-sm">
-            <option value="1080">1080p</option>
-            <option value="720">720p HD</option>
-            <option value="480">480p</option>
-            <option value="360">360p</option>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-indigo-300 mb-2">Qualidade do Vídeo</label>
+          <select id="quality-select" class="w-full bg-indigo-950/80 border border-indigo-800/80 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 shadow-inner">
+            <option value="1080" class="bg-indigo-950 text-white">1080p</option>
+            <option value="720" class="bg-indigo-950 text-white">720p HD</option>
+            <option value="480" class="bg-indigo-950 text-white">480p</option>
+            <option value="360" class="bg-indigo-950 text-white">360p</option>
           </select>
         </div>
 
         <!-- MENSAGEM DE ERRO OU ALERTA -->
-        <div id="error-alert" class="hidden p-3.5 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm flex items-center gap-2 shadow-sm">
-          <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 text-red-600"></i>
+        <div id="error-alert" class="hidden p-3.5 bg-red-950/80 border border-red-800/80 text-red-200 rounded-xl text-sm flex items-center gap-2 shadow-sm">
+          <i data-lucide="alert-circle" class="w-4 h-4 flex-shrink-0 text-red-400"></i>
           <span id="error-msg">Não foi possível processar este link.</span>
         </div>
 
@@ -163,7 +164,7 @@
         <button 
           id="download-btn" 
           onclick="iniciarDownload()"
-          class="w-full py-4 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-700 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-cyan-600/30 transition active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
+          class="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/40 transition active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
         >
           <i data-lucide="download" class="w-5 h-5"></i>
           <span id="btn-text">Baixar Agora</span>
@@ -176,7 +177,7 @@
   </main>
 
   <!-- RODAPÉ -->
-  <footer class="border-t border-cyan-100 bg-white/50 py-6 text-center text-xs text-slate-600">
+  <footer class="border-t border-indigo-900/50 bg-indigo-950/40 py-6 text-center text-xs text-indigo-400">
     <p>Powered by Railway & Cobalt API • Instância Privada</p>
   </footer>
 
@@ -222,12 +223,12 @@
       const qualityWrapper = document.getElementById('quality-wrapper');
 
       if (formato === 'mp4') {
-        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-cyan-600 bg-cyan-50 text-cyan-700 shadow-sm";
-        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-slate-200 bg-white text-slate-600 hover:border-slate-300 shadow-sm";
+        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-500 bg-indigo-600/30 text-indigo-200 shadow-sm";
+        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-900 bg-indigo-950/40 text-indigo-400 hover:border-indigo-700 shadow-sm";
         qualityWrapper.classList.remove('hidden');
       } else {
-        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-cyan-600 bg-cyan-50 text-cyan-700 shadow-sm";
-        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-slate-200 bg-white text-slate-600 hover:border-slate-300 shadow-sm";
+        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-500 bg-indigo-600/30 text-indigo-200 shadow-sm";
+        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-indigo-900 bg-indigo-950/40 text-indigo-400 hover:border-indigo-700 shadow-sm";
         qualityWrapper.classList.add('hidden');
       }
     }
@@ -250,10 +251,11 @@
       btnText.innerText = "A processar na API...";
 
       try {
+        // Payload padronizado estritamente para o formato esperado pelo Cobalt v11
         const payload = {
           url: videoUrl,
-          vQuality: qualidade,
-          aFormat: formatoAtual === 'mp3' ? 'mp3' : 'best'
+          videoQuality: qualidade,
+          audioFormat: formatoAtual === 'mp3' ? 'mp3' : 'best'
         };
 
         const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/', {
