@@ -19,10 +19,10 @@
         extend: {
           colors: {
             brand: {
-              50: '#ecfdf5',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
+              50: '#f5f3ff',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
             }
           }
         }
@@ -32,28 +32,28 @@
   
   <style>
     body {
-      background-color: #f0fdf4; /* Fundo Verde Esmeralda muito suave */
+      background-color: #f8fafc; /* Fundo Slate/Violeta muito suave */
       color: #1e293b;
       font-family: system-ui, -apple-system, sans-serif;
     }
     .glass-card {
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.08), 0 10px 10px -5px rgba(16, 185, 129, 0.04);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.08), 0 10px 10px -5px rgba(139, 92, 246, 0.04);
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-600 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-600 selection:text-white">
 
   <!-- CABEÇALHO / HEADER -->
-  <header class="border-b border-emerald-100 bg-white/70 backdrop-blur-md sticky top-0 z-50">
+  <header class="border-b border-purple-100 bg-white/70 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="bg-emerald-600 p-2 rounded-xl text-white shadow-md shadow-emerald-600/30">
+        <div class="bg-purple-600 p-2 rounded-xl text-white shadow-md shadow-purple-600/30">
           <i data-lucide="download"></i>
         </div>
-        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-emerald-700 to-teal-600 bg-clip-text text-transparent">
+        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
           MediaFetch Pro
         </span>
       </div>
@@ -72,7 +72,7 @@
     <!-- TÍTULO PRINCIPAL -->
     <div class="text-center mb-8">
       <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
-        Baixar Vídeos e Músicas do <span class="bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">YouTube</span>
+        Baixar Vídeos e Músicas do <span class="bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">YouTube</span>
       </h1>
       <p class="text-slate-700 text-sm md:text-base max-w-lg mx-auto">
         Converta conteúdos do YouTube para MP3 de alta qualidade ou MP4 HD em segundos. Grátis e sem anúncios irritantes.
@@ -92,13 +92,13 @@
             type="text" 
             id="url-input" 
             placeholder="Cole o link do vídeo aqui (ex: https://youtu.be/...)"
-            class="w-full pl-10 pr-4 py-3.5 bg-white border border-emerald-200 rounded-xl focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 text-slate-800 placeholder-slate-400 transition shadow-sm"
+            class="w-full pl-10 pr-4 py-3.5 bg-white border border-purple-200 rounded-xl focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 text-slate-800 placeholder-slate-400 transition shadow-sm"
           >
         </div>
         <button 
           id="fetch-btn" 
           onclick="detectarVideo()"
-          class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 transition active:scale-95 shadow-md shadow-emerald-600/20"
+          class="bg-purple-600 hover:bg-purple-700 text-white px-5 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 transition active:scale-95 shadow-md shadow-purple-600/20"
         >
           <i data-lucide="search" class="w-4 h-4"></i>
           <span>Analisar</span>
@@ -106,15 +106,15 @@
       </div>
 
       <!-- ÁREA DE SELEÇÃO DE FORMATOS & PRÉVIA -->
-      <div id="media-card" class="hidden space-y-6 pt-4 border-t border-emerald-100">
+      <div id="media-card" class="hidden space-y-6 pt-4 border-t border-purple-100">
         
         <!-- PRÉVIA DO VÍDEO -->
-        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white p-4 rounded-xl border border-emerald-100 shadow-sm">
+        <div class="flex flex-col sm:flex-row gap-4 items-center bg-white p-4 rounded-xl border border-purple-100 shadow-sm">
           <img id="thumb-preview" src="" alt="Thumbnail" class="w-full sm:w-40 aspect-video object-cover rounded-lg border border-slate-100">
           <div class="flex-1 text-center sm:text-left overflow-hidden">
             <h3 id="video-title" class="font-semibold text-slate-800 truncate text-base">Título do Vídeo</h3>
             <p class="text-xs text-slate-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
-              <i data-lucide="video" class="w-3.5 h-3.5 text-emerald-600"></i> YouTube
+              <i data-lucide="video" class="w-3.5 h-3.5 text-purple-600"></i> YouTube
             </p>
           </div>
         </div>
@@ -126,7 +126,7 @@
             <button 
               id="tab-mp4"
               onclick="selecionarFormato('mp4')"
-              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-emerald-600 bg-emerald-50 text-emerald-700 shadow-sm"
+              class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-purple-600 bg-purple-50 text-purple-700 shadow-sm"
             >
               <i data-lucide="video" class="w-4 h-4"></i>
               Vídeo (MP4)
@@ -145,7 +145,7 @@
         <!-- OPÇÕES DE QUALIDADE -->
         <div id="quality-wrapper">
           <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Qualidade do Vídeo</label>
-          <select id="quality-select" class="w-full bg-white border border-emerald-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-600/20 shadow-sm">
+          <select id="quality-select" class="w-full bg-white border border-purple-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20 shadow-sm">
             <option value="1080">1080p</option>
             <option value="720">720p HD</option>
             <option value="480">480p</option>
@@ -163,7 +163,7 @@
         <button 
           id="download-btn" 
           onclick="iniciarDownload()"
-          class="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/30 transition active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
+          class="w-full py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-purple-600/30 transition active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50"
         >
           <i data-lucide="download" class="w-5 h-5"></i>
           <span id="btn-text">Baixar Agora</span>
@@ -176,7 +176,7 @@
   </main>
 
   <!-- RODAPÉ -->
-  <footer class="border-t border-emerald-100 bg-white/50 py-6 text-center text-xs text-slate-600">
+  <footer class="border-t border-purple-100 bg-white/50 py-6 text-center text-xs text-slate-600">
     <p>Powered by Railway & Cobalt API • Instância Privada</p>
   </footer>
 
@@ -222,11 +222,11 @@
       const qualityWrapper = document.getElementById('quality-wrapper');
 
       if (formato === 'mp4') {
-        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-emerald-600 bg-emerald-50 text-emerald-700 shadow-sm";
+        tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-purple-600 bg-purple-50 text-purple-700 shadow-sm";
         tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-slate-200 bg-white text-slate-600 hover:border-slate-300 shadow-sm";
         qualityWrapper.classList.remove('hidden');
       } else {
-        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-emerald-600 bg-emerald-50 text-emerald-700 shadow-sm";
+        tabMp3.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-purple-600 bg-purple-50 text-purple-700 shadow-sm";
         tabMp4.className = "flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-medium text-sm transition border border-slate-200 bg-white text-slate-600 hover:border-slate-300 shadow-sm";
         qualityWrapper.classList.add('hidden');
       }
@@ -250,11 +250,11 @@
       btnText.innerText = "A processar na API...";
 
       try {
-        // Payload limpo e compatível com o Cobalt v11
+        // Payload limpo e padronizado para o Cobalt v11 (evita erro de body inválido)
         const payload = {
           url: videoUrl,
-          vQuality: qualidade,
-          aFormat: formatoAtual === 'mp3' ? 'mp3' : 'best'
+          videoQuality: qualidade,
+          audioFormat: formatoAtual === 'mp3' ? 'mp3' : 'best'
         };
 
         const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/', {
@@ -266,10 +266,10 @@
           body: JSON.stringify(payload)
         });
 
-        // Se o servidor retornar erro (ex: 400 ou 500), capturamos a mensagem
         if (!resposta.ok) {
-          const erroTexto = await resposta.text();
-          throw new Error(`Erro do servidor (${resposta.status}): ${erroTexto || 'Requisição inválida'}`);
+          const erroJson = await resposta.json().catch(() => ({}));
+          const mensagemErro = erroJson.error?.code || `Erro HTTP ${resposta.status}`;
+          throw new Error(`Erro do servidor: ${mensagemErro}`);
         }
 
         const dados = await resposta.json();
