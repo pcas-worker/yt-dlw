@@ -247,14 +247,14 @@
       btnText.innerText = "A processar na API...";
 
       try {
+        // Payload corrigido para o padrão exigido pelo Cobalt v11
         const payload = {
           url: videoUrl,
-          downloadMode: formatoAtual === 'mp3' ? 'audio' : 'auto',
-          audioFormat: formatoAtual === 'mp3' ? 'mp3' : 'best',
-          videoQuality: qualidade
+          vQuality: qualidade,
+          aFormat: formatoAtual === 'mp3' ? 'mp3' : 'best',
+          downloadMode: formatoAtual === 'mp3' ? 'audio' : 'auto'
         };
 
-        // Requisição enviada diretamente para a raiz da sua API privada no Railway
         const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/', {
           method: 'POST',
           headers: {
