@@ -254,8 +254,8 @@
           videoQuality: qualidade
         };
 
-        // Requisição enviada diretamente para a sua API privada no Railway
-        const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/api/json', {
+        // Requisição enviada diretamente para a raiz da sua API privada no Railway
+        const resposta = await fetch('https://cobalt-production-79c05f69.up.railway.app/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
